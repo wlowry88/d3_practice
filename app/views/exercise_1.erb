@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise 1</title>
+    
+    <script type="text/javascript" src="/javascript/d3.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // d3.select("body")
+      //   .append("p")
+      //   .text("New Paragraph!");
+
+      var dataset = [ 5, 10, 15, 20, 25 ];
+
+      d3.select("body").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text(function(d) { 
+          return "I can run up the stairs "+ d + " times."; 
+        })
+        .style("color", function(d) {
+          if(d>=15){
+            return "red";
+          } else {
+            return "green";
+          }
+        });
+
+      //1. We're selecting the body in the DOM
+      //2. We're selecting ALL THE PARAGRAPHS, even if they don't exist yet
+      //3. We're counting and parsing the values of the data, everything after is 5x
+      //4. Enter creates data bound elements, creates placeholders
+      //5. creates 5 new paragraphs, which now are caught by the selectAll("p"), hands off reference
+      //6. takes the reference to newly created p, updates text.
+
+      //There is bound data to paragraph 0 now - __data__:5. the data isn't stored in the DOM but it is stored in memory.
+      //Whenever you call you call data(), you create an anonymous function that accepts d as input 
+
+      // d3.json("/json/latest.json", function(error, data) {
+        
+      //   if(error){
+      //     console.log(error);
+      //   } else {
+      //     console.log(data);
+      //   }
+
+      //   dataset = data;
+        
+
+      // });
+
+    </script>
+  </body>
+</html>

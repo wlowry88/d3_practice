@@ -1,3 +1,5 @@
 require './environment.rb'
 
-run RootController
+use Rack::Static, :urls => ['/css', '/javascript', '/csv', '/fonts', '/json'], :root => 'public'
+
+run ApplicationController

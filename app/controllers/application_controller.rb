@@ -6,4 +6,13 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Reloader
   end
 
+    
+  get '/' do
+    erb :template
+  end
+
+  get '/:id' do 
+  	erb "exercise_#{params[:id]}".to_sym
+  end
+
 end
