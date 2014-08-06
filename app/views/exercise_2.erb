@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Chapter 6</title>
+    <script type="text/javascript" src="/javascript/d3.js"></script>
+    <style type="text/css">
+  
+      div.bar {
+        display: inline-block;
+        width: 20px;
+        background-color: teal;
+        margin-right: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var dataset = [];
+      for(i=0; i<=25; i++) {
+        var newNumber = Math.random() * 30
+        dataset.push(newNumber);
+      }
+
+      d3.select("body").selectAll("div")
+        .data(dataset)
+        .enter()
+        .append("div")
+        .attr("class", "bar")
+        .style("height", function(d){
+          var barHeight = 5*d;
+          return barHeight + "px"
+        })
+    </script>
+  <!--attributes are like, width, height, class, id -->
+  <!--values are like, the things that you set to those -->
+  <!-- user style for elements that deviate from the norm and attributes for the normal ones -->
+  </body>
+</html>
